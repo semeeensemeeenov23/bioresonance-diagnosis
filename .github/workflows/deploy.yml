@@ -1,5 +1,3 @@
-# Создаем файл с содержимым (для Linux/Mac/Git Bash)
-cat > .github/workflows/deploy.yml << 'EOF'
 name: Deploy to GitHub Pages
 
 on:
@@ -34,4 +32,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-EOF
