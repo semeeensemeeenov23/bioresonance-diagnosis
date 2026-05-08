@@ -64,7 +64,6 @@
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Преимущества</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#how-it-works">Как проходит</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organs">Что проверяем</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#preparation">Подготовка</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#prices">Цены</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Контакты</a></li>
           </ul>
@@ -358,13 +357,62 @@
         </div>
     </div>
 
+    <div class="row mt-5">
+    <div class="col-md-12">
+        <div class="contact-alt-section" style="background: #f8f9fa; border-radius: 15px; padding: 40px 20px; margin-top: 40px;">
+            <div class="text-center">
+                <h4 style="font-size: 24px; font-weight: 600; color: #333; margin-bottom: 15px;">Или свяжитесь с нами напрямую</h4>
+                <p style="color: #666; margin-bottom: 30px;">Выберите удобный способ связи</p>
+                
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 10px;">
+                    <!-- Кнопка звонка -->
+                    <a href="tel:+79220247099" class="contact-btn contact-btn-call">
+                        <div class="contact-btn-icon">📞</div>
+                        <div class="contact-btn-text">
+                            <span class="contact-btn-title">Позвонить</span>
+                            <span class="contact-btn-number">+7 (922) 024-70-99</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Кнопка MAX -->
+                    <a href="#" class="contact-btn contact-btn-max" onclick="openMax(event)">
+                        <div class="contact-btn-icon">💬</div>
+                        <div class="contact-btn-text">
+                            <span class="contact-btn-title">Написать в MAX</span>
+                            <span class="contact-btn-desc">Корпоративный мессенджер</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Кнопка Telegram -->
+                    <a href="https://t.me/+79220247099" class="contact-btn contact-btn-tg" target="_blank">
+                        <div class="contact-btn-icon">📨</div>
+                        <div class="contact-btn-text">
+                            <span class="contact-btn-title">Telegram</span>
+                            <span class="contact-btn-desc">Быстрый ответ</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Кнопка WhatsApp -->
+                    <a href="https://wa.me/79220247099" class="contact-btn contact-btn-wa" target="_blank">
+                        <div class="contact-btn-icon">📱</div>
+                        <div class="contact-btn-text">
+                            <span class="contact-btn-title">WhatsApp</span>
+                            <span class="contact-btn-desc">Мессенджер</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <!-- FOOTER / COPYRIGHTS -->
     <div class="copyrights">
         <div class="container">
             <div class="footer-distributed">
                 <div class="footer-center">
                     <p>г. Екатеринбург, ул. Восточная 52</p>
-                    <a href="mailto:diagnostika@brd-center.ru?body=Здравствуйте! Хочу записаться на диагностику" style="color:#999999;">diagnostika@brd-center.ru</a><br>
                     <a href="tel:+79220247099" style="color:#999999;">+7 (922) 024-70-99</a>
                     <p class="footer-company-name">Кабинет биорезонансной диагностики &copy; 2025</p>
                 </div>
@@ -401,5 +449,52 @@
             });
         });
     </script>
+
+    <script>
+function openMax(event) {
+    event.preventDefault();
+    
+    // Пробуем открыть MAX разными способами
+    const maxLinks = [
+        'max://chat?phone=79220247099',
+        'max://user?id=79220247099',
+        'max://open?contact=79220247099',
+        'maxm://chat?phone=79220247099'
+    ];
+    
+    let opened = false;
+    for (let link of maxLinks) {
+        try {
+            const win = window.open(link, '_blank');
+            if (win && !win.closed) {
+                opened = true;
+                break;
+            }
+        } catch(e) {
+            continue;
+        }
+    }
+    
+    // дополнительная проверка через iframe
+    if (!opened) {
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = 'max://';
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+            document.body.removeChild(iframe);
+        }, 1000);
+        
+        opened = true;
+    }
+    
+    setTimeout(() => {
+        if (!opened && !document.hidden) {
+            alert('❌ Приложение MAX не установлено или не поддерживает прямые ссылки.\n\n📱 Установите MAX из официального магазина приложений\n или используйте Telegram/WhatsApp для связи.');
+        }
+    }, 500);
+}
+</script>
 </body>
 </html>

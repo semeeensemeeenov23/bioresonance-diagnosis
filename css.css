@@ -194,3 +194,94 @@ body {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
+
+
+/* Стили для кнопок контактов */
+.contact-alt-section {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+
+.contact-btn-icon {
+    font-size: 28px;
+}
+
+.contact-btn-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-btn-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.contact-btn-number,
+.contact-btn-desc {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+/* Кнопка звонка */
+.contact-btn-call {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+/* Кнопка MAX */
+.contact-btn-max {
+    background: linear-gradient(135deg, #4a4a4a, #2c3e50);
+    color: white;
+}
+
+/* Кнопка Telegram */
+.contact-btn-tg {
+    background: linear-gradient(135deg, #0088cc, #00a8e8);
+    color: white;
+}
+
+/* Кнопка WhatsApp */
+.contact-btn-wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .contact-btn {
+        min-width: 160px;
+        padding: 10px 18px;
+    }
+    
+    .contact-btn-icon {
+        font-size: 24px;
+    }
+    
+    .contact-btn-title {
+        font-size: 14px;
+    }
+    
+    .contact-alt-section {
+        padding: 30px 15px;
+    }
+}
